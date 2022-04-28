@@ -1,7 +1,6 @@
 --  =========================================================
 -- | Title: Working DDL for GSF Software Scraping Database   |
--- | Author: elpb for Group 3                                |
--- | OG Date: 4-13-2022                                      |
+-- | Author: elpb for Group 3                                |                                    |
 --  =========================================================
 
 CREATE TABLE tblPRODUCTION_TYPE (
