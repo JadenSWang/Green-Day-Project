@@ -1,5 +1,5 @@
 --  =========================================================
--- | Title: 2nd Draft DDL for GSF Software Scraping Database |
+-- | Title: Working DDL for GSF Software Scraping Database   |
 -- | Author: elpb for Group 3                                |
 -- | OG Date: 4-13-2022                                      |
 --  =========================================================
