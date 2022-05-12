@@ -145,6 +145,6 @@ df_yesGen_summary = df_yesGen_summary.T
 
 #See the 2 dataframes
 
-# --------------------df_forcast_filtered, lr_Clean_Data_New, df_yesGen_emissions, df_yesGen_summary
+# --------------------df_forcast_filtered, lr_Clean_Data_New, df_yesGen_emissions_flipped, df_yesGen_summary
 # --------------------Above are cleaned dataset variable names
 df_yesGen_summary.copy()
