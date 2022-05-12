@@ -110,20 +110,9 @@ for(Column, Data) in lr_Clean_Data.iteritems():
 #THIS CODE SHOULD WORK
 # Block to clean up data in YesterdayGen --- Zack
 df_yesGen = sheetName[1]
-
-#drop first row of unstructured values and summary values at the end
 df_yesGen_test = df_yesGen.iloc[1: , :]
-
-#set column names and drop the second row which is empty
 df_yesGen_test.columns = df_yesGen_test.iloc[0]
-
-#drop the first and 3rd rows which are empty
 df_yesGen_test_updated = df_yesGen_test[2:]
-
-#Rename the column that is called 'Plant Name' to 'End Time', as that is what it really reflects.
-df_yesGen_test_updated.rename(columns = {'Plant Name':'End Time'}, inplace= True)
-
-#clean out unnecessary columns
 df_yesGen_test = df_yesGen_test.drop(
     ['Plant Removed', 
     'WesternBlank', 
@@ -146,20 +135,11 @@ df_yesGen_test = df_yesGen_test.drop(
     axis = 1
 )
 
-
-# Clean out NULLS
-clean_yesGen = df_yesGen_test_updated.fillna(-1) 
-
-#now I want to create 2 seperate dataframes: one that is just the emissions per plant (df_yesGen_emissions), and another that is summary data
+clean_yesGen = df_yesGen_test_updated.fillna(-1)
 df_yesGen_emissions = clean_yesGen.iloc[:26,]
-
-#Transpose the data set so that time is in the columns
 df_yesGen_emissions_flipped = df_yesGen_emissions.T
-
 #now I will create the other data frame for the summary data (df_yesGen_summary)
-df_yesGen_summary_1 = clean_yesGen.iloc[:1,]
-df_yesGen_summary_2 = clean_yesGen.iloc[28:34,]
-df_yesGen_summary = df_yesGen_summary_1.append(df_yesGen_summary_2)
+df_yesGen_summary = clean_yesGen.iloc[26:33,]
 df_yesGen_summary = df_yesGen_summary.T
 
 
