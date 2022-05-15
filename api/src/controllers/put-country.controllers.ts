@@ -14,7 +14,12 @@ const putCountryController: IController = async (req, res) => {
     }
 
     if (countryISO == undefined) {
-        res.status(400).send({ status: "error", message: "missing CountryName in body" })
+        res.status(400).send({ status: "error", message: "missing CountryISO in body" })
+        return;
+    }
+
+    if(countryISO.length != 3) {
+        res.status(400).send({ status: "error", message: "CountryISO is malformed" })
         return;
     }
 

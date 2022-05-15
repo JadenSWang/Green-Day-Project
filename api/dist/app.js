@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var cors_1 = __importDefault(require("cors"));
 var body_parser_1 = require("body-parser");
-var example_routes_1 = __importDefault(require("@routes/example.routes"));
+var ingest_routes_1 = __importDefault(require("@routes/ingest.routes"));
 // Set up the express app
 var app = (0, express_1.default)();
 app.use((0, body_parser_1.json)());
@@ -18,6 +18,6 @@ app.get("/api/version", function (_, res) {
 });
 // put the example router at path domain/example/...
 // try localhost:3000/example/get-example?id=123
-app.use("/example", example_routes_1.default);
+app.use("/ingest", ingest_routes_1.default);
 exports.default = app;
 //# sourceMappingURL=app.js.map
