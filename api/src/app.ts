@@ -1,7 +1,7 @@
 import express, { application } from "express";
 import cors from "cors";
 import { json } from "body-parser"
-import exampleRouter from "@routes/example.routes";
+import ingestRouter from "@routes/ingest.routes";
 
 // Set up the express app
 const app = express();
@@ -17,6 +17,6 @@ app.get("/api/version", (_, res) => {
 
 // put the example router at path domain/example/...
 // try localhost:3000/example/get-example?id=123
-app.use("/example", exampleRouter)
+app.use("/ingest", ingestRouter)
 
 export default app;

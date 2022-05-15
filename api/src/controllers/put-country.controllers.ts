@@ -4,7 +4,7 @@
 import { IController } from "@common/controller.interface"
 import { putCountry } from "@models/put-country.models"
 
-const getExampleController: IController = async (req, res) => {
+const putCountryController: IController = async (req, res) => {
     const countryName = req.body.CountryName
     const countryISO = req.body.CountryISO
 
@@ -26,4 +26,4 @@ const getExampleController: IController = async (req, res) => {
     }
 }
 
-export { getExampleController }
+export { putCountryController }
