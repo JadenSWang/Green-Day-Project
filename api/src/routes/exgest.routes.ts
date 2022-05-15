@@ -1,8 +1,9 @@
 import { getDataExample } from "@controllers/get-example.controllers";
 import { Router } from "express";
 
-const ingestRouter = Router();
+const exgestRouter = Router();
 
-ingestRouter.get('/entry', getDataExample)
+// localhost:3000/exgest/entry/somefieldhere/someotherfieldhere
+exgestRouter.get('/entry/:field1/:field2', getDataExample)
 
-export default ingestRouter
+export default exgestRouter

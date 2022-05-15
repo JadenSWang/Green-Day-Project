@@ -1,8 +1,4 @@
-/**
- */
-
 import { IController } from "@common/controller.interface"
-import { putCountry } from "@models/put-country.models"
 
 const getDataExample: IController = async (req, res) => {
     const field1 = req.params.field1
