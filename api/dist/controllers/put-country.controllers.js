@@ -52,7 +52,11 @@ var putCountryController = function (req, res) { return __awaiter(void 0, void 0
                     return [2 /*return*/];
                 }
                 if (countryISO == undefined) {
-                    res.status(400).send({ status: "error", message: "missing CountryName in body" });
+                    res.status(400).send({ status: "error", message: "missing CountryISO in body" });
+                    return [2 /*return*/];
+                }
+                if (countryISO.length != 3) {
+                    res.status(400).send({ status: "error", message: "CountryISO is malformed" });
                     return [2 /*return*/];
                 }
                 _a.label = 1;

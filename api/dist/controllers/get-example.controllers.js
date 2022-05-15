@@ -1,4 +1,6 @@
 "use strict";
+/**
+ */
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -36,13 +38,16 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getExampleData = void 0;
-function getExampleData(id) {
-    return __awaiter(this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            return [2 /*return*/, "This is Example Data for id: ".concat(id, "!")];
-        });
+exports.getDataExample = void 0;
+var getDataExample = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var field1, field2;
+    return __generator(this, function (_a) {
+        field1 = req.params.field1;
+        field2 = req.body.field2;
+        console.log(field1, field2);
+        res.sendStatus(200);
+        return [2 /*return*/];
     });
-}
-exports.getExampleData = getExampleData;
-//# sourceMappingURL=example.js.map
+}); };
+exports.getDataExample = getDataExample;
+//# sourceMappingURL=get-example.controllers.js.map
