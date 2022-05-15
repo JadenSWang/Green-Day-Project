@@ -19,7 +19,6 @@ const getExampleController: IController = async (req, res) => {
     } else {
         res.status(400).send({ error: { message: "Missing query field: id" } })
     }
-
 }
 
 export { getExampleController }

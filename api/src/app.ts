@@ -19,6 +19,4 @@ app.get("/api/version", (_, res) => {
 // try localhost:3000/example/get-example?id=123
 app.use("/example", exampleRouter)
 
-
-
 export default app;
