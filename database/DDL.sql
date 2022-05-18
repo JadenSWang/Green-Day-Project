@@ -303,7 +303,7 @@ CREATE TABLE tblPOWERPLANT (
     , PowerPlantName varchar (35) NOT NULL
     , CapacityPossible numeric (7,2) NOT NULL
     , CountryID int NOT NULL
-    , GridID int NOT NULL
+    , RegionID int NOT NULL
     , OwnerID int NOT NULL
 )
 GO
