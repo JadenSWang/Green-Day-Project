@@ -444,3 +444,18 @@ ALTER TABLE tblPOWERPLANT_FORECAST
     ADD CONSTRAINT FK_ForecastID_PowerPlantForecast FOREIGN KEY (ForecastID)
     REFERENCES tblFORECAST (ForecastID)
 GO
+
+CREATE TABLE tblGRID_REGION (
+    GridRegionID int IDENTITY (1,1) PRIMARY KEY
+    , GridRegionName varchar (50)
+)
+GO
+
+ALTER TABLE tblGRID
+    ADD GridRegionID int NOT NULL
+GO
+
+ALTER TABLE tblGRID
+    ADD CONSTRAINT FK_GridRegionID_Grid FOREIGN KEY (GridRegionID)
+    REFERENCES tblGRID_REGION (GridRegionID)
+GO
