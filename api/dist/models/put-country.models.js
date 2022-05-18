@@ -1,7 +1,4 @@
 "use strict";
-/**
- * Controller which gathers and returns information pertaining the currently logged in user
- */
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -39,32 +36,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getExampleController = void 0;
-var example_1 = require("@models/example");
-var getExampleController = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var id, parsedId, exampleResult;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                id = req.query.id;
-                if (!(typeof id == 'string')) return [3 /*break*/, 4];
-                parsedId = Number.parseInt(id);
-                if (!parsedId) return [3 /*break*/, 2];
-                return [4 /*yield*/, (0, example_1.getExampleData)(parsedId)];
-            case 1:
-                exampleResult = _a.sent();
-                res.status(200).send(exampleResult);
-                return [3 /*break*/, 3];
-            case 2:
-                res.status(400).send({ error: { message: "Query field: id should be of type int" } });
-                _a.label = 3;
-            case 3: return [3 /*break*/, 5];
-            case 4:
-                res.status(400).send({ error: { message: "Missing query field: id" } });
-                _a.label = 5;
-            case 5: return [2 /*return*/];
-        }
+exports.putCountry = void 0;
+function putCountry(countryName, countryISO) {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            console.log("pretending to place the country");
+            return [2 /*return*/];
+        });
     });
-}); };
-exports.getExampleController = getExampleController;
-//# sourceMappingURL=example.controllers.js.map
+}
+exports.putCountry = putCountry;
+//# sourceMappingURL=put-country.models.js.map

@@ -1,24 +1,25 @@
 import express, { application } from "express";
 import cors from "cors";
 import { json } from "body-parser"
-import exampleRouter from "@routes/example.routes";
+import ingestRouter from "@routes/ingest.routes";
+import exgestRouter from "@routes/exgest.routes"
+import logger from "morgan"
 
 // Set up the express app
 const app = express();
 app.use(json());
-
-// open cors to everyone
 app.use(cors());
+app.use(logger('dev'))
 
 // api version
+app.get('/api/versions', (req, res) => {
+  res.send("SDF")
+})
 app.get("/api/version", (_, res) => {
-  res.send("0.0.1");
+  res.send("0.0.2");
 });
 
-// put the example router at path domain/example/...
-// try localhost:3000/example/get-example?id=123
-app.use("/example", exampleRouter)
-
-
+app.use("/ingest", ingestRouter)
+app.use('/exgest', exgestRouter)
 
 export default app;
