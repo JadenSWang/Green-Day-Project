@@ -2,9 +2,9 @@
  */
 
  import { IController } from "@common/controller.interface"
- import { putCountry } from "@models/put-country.models"
+ import { putPowerPlant } from "@models/put-country.models"
  
- const powerPlantController: IController = async (req, res) => {
+ const putPowerPlantController: IController = async (req, res) => {
      const PowerPlantName = req.body.PowerPlantName
      const CapacityPossible = req.body.CapacityPossible
      const CountryID = req.body.CountryID
@@ -12,27 +12,36 @@
      const OwnerID = req.body.OwnerID
     
  
-     if (countryName == undefined) {
-         res.status(400).send({ status: "error", message: "missing CountryName in body" })
+     if (PowerPlantName == undefined) {
+         res.status(400).send({ status: "error", message: "missing PowerPlantName in body" })
          return;
      }
  
-     if (countryISO == undefined) {
-         res.status(400).send({ status: "error", message: "missing CountryISO in body" })
+     if (CapacityPossible == undefined) {
+         res.status(400).send({ status: "error", message: "missing CapacityPossible in body" })
          return;
      }
  
-     if(countryISO.length != 3) {
-         res.status(400).send({ status: "error", message: "CountryISO is malformed" })
+     if(CountryID == null) {
+         res.status(400).send({ status: "error", message: "CountryID is missing" })
          return;
      }
+     if(GridID == null) {
+        res.status(400).send({ status: "error", message: "GridID is missing" })
+        return;
+    }
+    if(OwnerID == null) {
+        res.status(400).send({ status: "error", message: "OwnerID is missing" })
+        return;
+    }
+
  
      try {
-         await putCountry(countryName, countryISO)
-         res.status(201).send({ status: "success", message: `Successfully placed ${countryISO} into the database` })
+         await putPowerPlant(PowerPlantName, CapacityPossible)
+         res.status(201).send({ status: "success", message: `Successfully placed ${PowerPlantName} into the database` })
      } catch (error) {
          res.status(500).send({ status: "error", message: error })
      }
  }
  
- export { powerPlantController }
+ export { putPowerPlantController }
