@@ -2,7 +2,7 @@
  */
 
  import { IController } from "@common/controller.interface"
- import { putPowerPlant } from "@models/put-country.models"
+ import { putPowerPlant } from "@models/put-powerplant.models"
  
  const putPowerPlantController: IController = async (req, res) => {
      const PowerPlantName = req.body.PowerPlantName
@@ -37,7 +37,7 @@
 
  
      try {
-         await putPowerPlant(PowerPlantName, CapacityPossible)
+         await putPowerPlant(PowerPlantName, CapacityPossible, CountryID, GridID, OwnerID)
          res.status(201).send({ status: "success", message: `Successfully placed ${PowerPlantName} into the database` })
      } catch (error) {
          res.status(500).send({ status: "error", message: error })
