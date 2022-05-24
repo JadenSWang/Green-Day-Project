@@ -68,6 +68,14 @@ var putDataSource = function (req, res) { return __awaiter(void 0, void 0, void 
                     res.status (400).send ({ status: "error", message: "missing inputDate in body!"});
                     return [2];
                 }
+                if (inputDate.length != 10) {
+                    res.status (400).send ({ status: "error", message: "inputDate must be in DD-MM-YYYY format!"});
+                    return [2];
+                }
+                if (accessDate.length != 10) {
+                    res.status (400).send ({ status: "error", message: "accessDate must be in DD-MM-YYYY format!"});
+                    return [2];
+                }
                 _a.label = 1;
             case 1:
                 _a.trys.push([1,3,4]);
