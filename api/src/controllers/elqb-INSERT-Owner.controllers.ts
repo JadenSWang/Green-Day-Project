@@ -7,24 +7,24 @@ const putOwner: IController = async (req, res) => {
     const desc = req.body.desc
 
     if (owner == undefined) {
-        res.status(400).send({ status: "error", message: "missing CountryName in body" })
+        res.status(400).send({ status: "error", message: "missing owner in body" })
         return;
     }
 
     if (type == undefined) {
-        res.status(400).send({ status: "error", message: "missing CountryISO in body" })
+        res.status(400).send({ status: "error", message: "missing type in body" })
         return;
     }
 
     if(type.length != 3) {
-        res.status(400).send({ status: "error", message: "CountryISO is malformed" })
+        res.status(400).send({ status: "error", message: "type is malformed" })
         return;
     }
 
 
     try {
         await insertOwner(owner, type, desc)
-        res.status(201).send({ status: "success", message: `Successfully placed ${countryISO} into the database` })
+        res.status(201).send({ status: "success", message: `Successfully placed ${owner} ${type}into the database` })
     } catch (error) {
         res.status(500).send({ status: "error", message: error })
     }
