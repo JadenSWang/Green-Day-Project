@@ -43,21 +43,35 @@ def cleaner():
     df_forcast = sheetName[0]
 
     # dropping column with null
-    df_forcast = df_forcast.iloc[7:, 3:]
-    df_forcast = df_forcast.drop(df_forcast.iloc[:, 1:2], axis=1)
-    df_forcast = df_forcast.drop(df_forcast.iloc[:, 13:14], axis=1)
-    
-    column_names = ["name", 'generation_type', 'producer', 'installed_capacity(unit_No.X_capacity)', 'installed_capacity(MW)', 'present_capacity(MW)',
-                    "actual_generation(day_peak)", 'actual_generation(Ev.peak)', 'forcasted_avaliable_gen(day_peak)', 'forcasted_avaliable_gen(Ev.peak)',
-                    'Ev.peak_gen_shortage(for_fuel_limitation)', 'Ev.peak_gen_shortage(for_plant.S/D_M/C_problem)', 'plants_under_shut_down_remarks', 'probable_start_up_date']
+    df_forcast = df_forcast.iloc[7: , 3:]
+    df_forcast =  df_forcast.drop(df_forcast.iloc[: , 1:2], axis=1)
+    df_forcast =  df_forcast.drop(df_forcast.iloc[: , 13:14], axis=1)
+    df_forcast
 
-    df_forcast_filtered = pd.DataFrame(columns=column_names)
+    column_names = ["name", 'generation_type', 'producer', 'installed_capacity(unit_No.X_capacity)', 'installed_capacity(MW)', 'present_capacity(MW)', 
+                "actual_generation(day_peak)", 'actual_generation(Ev.peak)', 'forcasted_avaliable_gen(day_peak)', 'forcasted_avaliable_gen(Ev.peak)',
+                'Ev.peak_gen_shortage(for_fuel_limitation)', 'Ev.peak_gen_shortage(for_plant.S/D_M/C_problem)', 'plants_under_shut_down_remarks','probable_start_up_date']
+
+    df_forcast_filtered = pd.DataFrame(columns = column_names)
     for (index, colname) in enumerate(df_forcast):
         df_forcast_filtered[column_names[index]] = df_forcast[colname]
 
     # replace nan
     df_forcast_filtered = df_forcast_filtered.fillna(-1)
-    result.append(df_forcast_filtered)
+    df_forcast_filtered_no_total = pd.DataFrame(columns = column_names);
+    for index, row in df_forcast_filtered.iterrows():
+        currName  =  row["name"]
+    if isinstance(currName, str):
+        if "area Total" not in currName and "Area Total" not in currName:
+        # print(row)
+            df_forcast_filtered_no_total.loc[index]= row
+    else:
+        df_forcast_filtered_no_total.loc[index]= row
+
+    df_forcast_filtered = df_forcast_filtered_no_total
+    df_forcast_filtered
+
+
 
     # --------
     lr_Clean_Data = df_lcurve.iloc[:,0:5]
