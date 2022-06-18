@@ -6,5 +6,5 @@ Among those, we cleaned Forcast Generation Data, Yesterday Generation Data, and 
 
 ## Scraper
 
-
+## To Run
 run: npm run dev
